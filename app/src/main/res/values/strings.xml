@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Tic Tac Toe</string>
+
+
+    <string name="msg_help">
+        \n The first user who click is
+        \n
+        Player 1 and the second is Player 2.
+        \n\n
+        Player 1 = X mark
+        \n
+        Player 2 = 0 mark
+        \n\n
+        The goal of both players :
+        \n
+        3 straight line (Vertical,Horizontal,
+        \n
+        Diagonal Left/Right).
+        \n\n
+        The one who made 3 straight line will
+        \n
+        be the winner.
+        \n\n
+        When all boxes are filled and still
+        \n
+        no winner, the game will be draw.
+        \n \n
+        The reset button will reset the game.
+
+    </string>
+
+
+</resources>

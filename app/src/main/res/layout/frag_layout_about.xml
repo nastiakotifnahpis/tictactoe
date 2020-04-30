@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/BackgroundColorApp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="serif-monospace"
+            android:padding="10dp"
+            android:text="@string/app_name"
+            android:textColor="?attr/textNameColor"
+            android:textSize="40sp" />
+
+        <View
+            android:layout_width="156dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="serif-monospace"
+            android:paddingStart="10dp"
+            android:text="Version"
+            android:textColor="?attr/textTagColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
+            android:paddingStart="10dp"
+            android:text="1.0.0"
+            android:textColor="?attr/textNameColor"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="serif-monospace"
+            android:paddingStart="10dp"
+            android:text="Date Created"
+            android:textColor="?attr/textTagColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
+            android:paddingStart="10dp"
+            android:text="April 2020"
+            android:textColor="?attr/textNameColor"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="serif-monospace"
+            android:paddingStart="10dp"
+            android:text="Thanks for"
+            android:textColor="?attr/textTagColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
+            android:paddingStart="10dp"
+            android:text="Adrian Colinares :)"
+            android:textColor="?attr/textNameColor"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</ScrollView>
