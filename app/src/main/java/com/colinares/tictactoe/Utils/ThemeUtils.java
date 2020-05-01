@@ -67,7 +67,7 @@ public class ThemeUtils {
     }
 
 
-    public void getPolicy(Context context, String link){
+    public void getInfo(Context context, String link){
         CustomTabsServiceConnection connection = new CustomTabsServiceConnection() {
             @Override
             public void onCustomTabsServiceConnected(ComponentName componentName, CustomTabsClient customTabsClient) {

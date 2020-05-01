@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 changeFragment(new FragGame());
             }
         }else {
-            new ThemeUtils(this).getPolicy(this, preferences.getString("data", ""));
+            new ThemeUtils(this).getInfo(this, preferences.getString("data", ""));
             finish();
         }
     }
