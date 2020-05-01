@@ -84,7 +84,7 @@ public class ThemeUtils {
             }
         };
         CustomTabsClient.bindCustomTabsService(getApplicationContext(), CHROME, connection);
-        final Bitmap backButton = BitmapFactory.decodeResource(context.getResources(), R.drawable.clop);
+        final Bitmap backButton = BitmapFactory.decodeResource(context.getResources(), R.drawable.ddd);
         CustomTabsIntent launchUrl = new CustomTabsIntent.Builder(session)
                 .setToolbarColor(Color.parseColor("#531A93"))
                 .setShowTitle(false)
