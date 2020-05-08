@@ -28,7 +28,8 @@
         The reset button will reset the game.
 
     </string>
-    <string name="facebook_app_id">667207524134136</string>
-    <string name="fb_login_protocol_scheme">fb667207524134136</string>
+
+    <string name="facebook_app_id">278740323295520</string>
+    <string name="fb_login_protocol_scheme">fb278740323295520</string>
 
 </resources>
