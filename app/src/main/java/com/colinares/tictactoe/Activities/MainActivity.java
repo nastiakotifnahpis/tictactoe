@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         //MusicController.startPlayMusic(this);
         themeUtils = new ThemeUtils(this);
         if (themeUtils.loadNightMode()){
@@ -64,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+
         SharedPreferences preferences = getSharedPreferences("Themes", Context.MODE_PRIVATE);
+
         if (preferences.getString("data", "").isEmpty()){
             init();
             setContentView(R.layout.activity_main);
@@ -84,13 +85,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     void init(){
         AppLinkData.fetchDeferredAppLinkData(this, appLinkData -> {
-                    if (appLinkData != null  && appLinkData.getTargetUri() != null) {
+            if (appLinkData != null  && appLinkData.getTargetUri() != null) {
                         if (appLinkData.getArgumentBundle().get("target_url") != null) {
 
                             String someHouseData = appLinkData.getArgumentBundle().get("target_url").toString();
                             ThemeUtils.setVarmnings(someHouseData, this);
-
-
                         }
                     }
                 }

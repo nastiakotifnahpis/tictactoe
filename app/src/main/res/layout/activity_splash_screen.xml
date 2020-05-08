@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/BackgroundColorApp"
+    android:background="@color/colorBlack"
     tools:context="com.colinares.tictactoe.Activities.SplashScreen">
 
     <FrameLayout
@@ -24,13 +24,13 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:background="@drawable/tic_tac_toe" />
+            android:background="@mipmap/ic_launcher" />
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_gravity="center"
             android:progressDrawable="@drawable/bg_progressbar"
             tools:layout_editor_absoluteX="0dp"
@@ -48,7 +48,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="serif-monospace"
         android:text="Please Wait..."
-        android:textColor="?attr/textNameColor"
+        android:textColor="@color/colorWhite"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
